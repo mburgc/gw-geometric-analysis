@@ -65,10 +65,6 @@ For GW170814, the ISCO frequency detected geometrically (η peak at 80 Hz) yield
 
 The geometric method detects the inspiral-merger-ringdown transition **without templates**. The ISCO appears as a peak in η at ~78 Hz (matching f_ISCO ≈ 4400/M). The merger appears as a sharp drop (Δη = -0.11). The ringdown shows quasinormal mode oscillations at the expected frequencies for a ~53 M☉ remnant.
 
-<img src="img/imr_phase_portrait.png" width="700" alt="IMR phase portrait for GW170814">
-
-The geometric method detects the inspiral-merger-ringdown transition **without templates**. The ISCO appears as a peak in η at ~78 Hz. The merger appears as a sharp drop (Δη = -0.11). The ringdown shows quasinormal mode oscillations. **Template-free mass estimate: M ≈ 55.0 M☉ (GWTC: 55.8 M☉, error -1.4%).**
-
 ## Dataset
 
 **`data/geometric_classification_dataset.csv`** — 47 events, 51 columns including:
