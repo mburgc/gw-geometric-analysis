@@ -95,6 +95,7 @@ def run(event, gps_center, data_dir=None, duration=DEFAULT_DURATION,
     cache_dir = os.path.join(data_dir, "_cache")
     os.makedirs(cache_dir, exist_ok=True)
     cache_path = os.path.join(cache_dir, f"{event}_raw_strain.npz")
+    available_detectors = []
 
     if os.path.exists(cache_path):
         print(f"\n📦 Cargando strain desde caché: {cache_path}")
@@ -102,23 +103,57 @@ def run(event, gps_center, data_dir=None, duration=DEFAULT_DURATION,
         h1_raw_val = cached["h1"]
         l1_raw_val = cached["l1"]
         v1_raw_val = cached["v1"]
+        available_detectors = []
+        if np.any(h1_raw_val): available_detectors.append('H1')
+        if np.any(l1_raw_val): available_detectors.append('L1')
+        if np.any(v1_raw_val): available_detectors.append('V1')
+        print(f"   Detectores disponibles: {', '.join(available_detectors) if available_detectors else 'none'} ({len(available_detectors)}/3)")
         cached.close()
     else:
         print(f"\n📡 Descargando strain de GWOSC ({event}, ±{duration//2}s, {fs} Hz)...")
         start = int(gps_center - duration // 2)
         end = int(gps_center + duration // 2)
 
+        available_detectors = []
+        h1_raw_val = l1_raw_val = v1_raw_val = None
+
         print("   H1 (Hanford)...")
-        h1_raw_val = TimeSeries.fetch_open_data('H1', start, end, sample_rate=fs).value
+        try:
+            h1_raw_val = TimeSeries.fetch_open_data('H1', start, end, sample_rate=fs).value
+            available_detectors.append('H1')
+        except Exception as e:
+            print(f"   ⚠ H1 no disponible ({type(e).__name__})")
+
         print("   L1 (Livingston)...")
-        l1_raw_val = TimeSeries.fetch_open_data('L1', start, end, sample_rate=fs).value
+        try:
+            l1_raw_val = TimeSeries.fetch_open_data('L1', start, end, sample_rate=fs).value
+            available_detectors.append('L1')
+            if h1_raw_val is None:
+                h1_raw_val = np.zeros_like(l1_raw_val)
+        except Exception as e:
+            print(f"   ⚠ L1 no disponible ({type(e).__name__})")
+            if l1_raw_val is None and h1_raw_val is not None:
+                l1_raw_val = np.zeros_like(h1_raw_val)
+
         print("   V1 (Virgo)...")
         try:
             v1_raw_val = TimeSeries.fetch_open_data('V1', start, end, sample_rate=fs).value
+            available_detectors.append('V1')
         except Exception:
-            print("   ⚠ V1 no disponible para esta época — usando ceros")
+            print("   ⚠ V1 no disponible — usando ceros")
+
+        if h1_raw_val is None:
+            h1_raw_val = np.zeros(131072)
+        if l1_raw_val is None:
+            l1_raw_val = np.zeros(131072)
+        if v1_raw_val is None:
             v1_raw_val = np.zeros_like(h1_raw_val)
 
+        n_det = len(available_detectors)
+        if n_det < 2:
+            raise RuntimeError(f"Solo {n_det} detectores disponibles — se necesitan ≥2")
+
+        print(f"   Detectores disponibles: {', '.join(available_detectors)} ({n_det}/3)")
         print(f"   Guardando en caché: {cache_path}")
         np.savez_compressed(cache_path, h1=h1_raw_val, l1=l1_raw_val, v1=v1_raw_val)
         print(f"   ✓ {len(h1_raw_val)} muestras por detector")
