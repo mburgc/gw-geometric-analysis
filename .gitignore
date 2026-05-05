@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Data (keep only CSV, not raw strain)
+data/_cache/
+data/_granular_*/
+data/*/inspiral/
+data/*/post_inspiral/
+data/*/merger_ringdown/
+data/*.npz
+
+# Jupyter
+.ipynb_checkpoints/
+
+# LaTeX aux
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# OS
+.DS_Store
+Thumbs.db

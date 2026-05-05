@@ -1,0 +1,9 @@
+gwpy>=4.0
+gwosc>=0.8
+numpy>=2.0
+scipy>=1.17
+matplotlib>=3.10
+scikit-learn>=1.8
+h5py>=3.16
+tqdm>=4.67
+seaborn>=0.13
