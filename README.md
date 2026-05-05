@@ -1,11 +1,13 @@
 # Template-Free Geometric Analysis of Gravitational-Wave Events
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18228132.svg)](https://doi.org/10.5281/zenodo.18228132)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20038185.svg)](https://doi.org/10.5281/zenodo.20038185)
 
 **Pipeline, dataset, and geometric classification catalog accompanying:**
 
 > Burgos, M. E. *Template-Free Geometric Analysis of Gravitational-Wave Events* (2026).  
-> Zenodo. [10.5281/zenodo.18228132](https://doi.org/10.5281/zenodo.18228132)
+> Paper: [10.5281/zenodo.18228132](https://doi.org/10.5281/zenodo.18228132)  
+> Dataset & Code: [10.5281/zenodo.20038185](https://doi.org/10.5281/zenodo.20038185)
 
 ---
 
@@ -111,15 +113,21 @@ python run_pipeline.py --event GW170814
 
 ## Citation
 
-If you use this software or dataset in your research, please cite:
+If you use this software or dataset, please cite **both** the paper and the dataset:
 
 ```bibtex
-@software{burgos2026gwgeometric,
+@article{burgos2026templatefree,
   author    = {Burgos, Marcelo Ernesto},
   title     = {Template-Free Geometric Analysis of Gravitational-Wave Events},
   year      = {2026},
   doi       = {10.5281/zenodo.18228132},
-  url       = {https://github.com/mburgc/gw-geometric-analysis}
+}
+@software{burgos2026gwdataset,
+  author    = {Burgos, Marcelo Ernesto},
+  title     = {Template-Free Geometric Analysis of Gravitational-Wave Events — Pipeline and Dataset},
+  year      = {2026},
+  doi       = {10.5281/zenodo.20038185},
+  url       = {https://github.com/mburgc/gw-geometric-analysis},
 }
 ```
 

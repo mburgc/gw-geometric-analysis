@@ -1,15 +1,14 @@
 cff-version: 1.2.0
-message: "If you use this software or dataset, please cite the paper and the software as described below."
+message: "If you use this software or dataset, please cite both the paper and this dataset."
 authors:
   - family-names: Burgos Cayupil
     given-names: Marcelo Ernesto
-    orcid: ""
 title: "Template-Free Geometric Analysis of Gravitational-Wave Events — Pipeline and Dataset"
-version: 1.0.0
-date-released: "2026-05-04"
-doi: 10.5281/zenodo.18228132
+version: 1.1.0
+date-released: "2026-05-05"
+doi: 10.5281/zenodo.20038185
 repository-code: "https://github.com/mburgc/gw-geometric-analysis"
-abstract: "Pipeline implementation and geometric classification dataset for template-free analysis of gravitational-wave events from the LIGO-Virgo O2 and O3 observing runs. This dataset fulfills the Future Work section of the accompanying publication."
+abstract: "Pipeline implementation and geometric classification dataset for template-free analysis of 47 gravitational-wave events from the LIGO-Virgo O2 and O3 observing runs. Accompanies the publication Template-Free Geometric Analysis of Gravitational-Wave Events (doi:10.5281/zenodo.18228132)."
 keywords:
   - "gravitational waves"
   - "geometric analysis"
@@ -18,9 +17,21 @@ keywords:
   - "Virgo"
   - "black holes"
   - "neutron stars"
+  - "classification"
 license: MIT
 type: software
 identifiers:
   - type: doi
+    value: 10.5281/zenodo.20038185
+    description: "This dataset and pipeline"
+  - type: doi
     value: 10.5281/zenodo.18228132
     description: "Accompanying publication"
+references:
+  - type: publication
+    title: "Template-Free Geometric Analysis of Gravitational-Wave Events"
+    authors:
+      - family-names: Burgos Cayupil
+        given-names: Marcelo Ernesto
+    doi: 10.5281/zenodo.18228132
+    year: 2026
