@@ -19,6 +19,28 @@ The method operates directly on whitened strain data from interferometric detect
 
 > *"Systematic analysis of the full GWTC would establish a complete geometric taxonomy and reveal potential correlations with astrophysical source properties."*
 
+---
+
+## Key Visualizations
+
+### Geometric Classification Plane (η vs Rotation)
+
+<img src="img/eta_rotation_plane.png" width="700" alt="η vs Rotation plane">
+
+Each point is a GW event. **η** measures geometric coherence (how clean the signal is in detector space). **Rotation** measures cross-phase stability (how much the geometry changes from inspiral to merger). The plane reveals four natural quadrants with distinct astrophysical properties.
+
+### Event Distribution
+
+<img src="img/class_distribution.png" width="700" alt="Class and source type distribution">
+
+**94% of confident GWTC events are Class B⁺** (multi-component coherent geometry). Only 2 events achieve Class A (one-dimensional geometry). Zero false positives — all events show measurable geometric coherence.
+
+### IMR Phase Portrait — GW170814
+
+<img src="img/imr_phase_portrait.png" width="700" alt="IMR phase portrait for GW170814">
+
+The geometric method detects the inspiral-merger-ringdown transition **without templates**. The ISCO appears as a peak in η at ~78 Hz. The merger appears as a sharp drop (Δη = -0.11). The ringdown shows quasinormal mode oscillations. **Template-free mass estimate: M ≈ 55.0 M☉ (GWTC: 55.8 M☉, error -1.4%).**
+
 ## Dataset
 
 **`data/geometric_classification_dataset.csv`** — 47 events, 51 columns including:
