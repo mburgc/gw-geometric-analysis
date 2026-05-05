@@ -35,7 +35,35 @@ Each point is a GW event. **η** measures geometric coherence (how clean the sig
 
 **94% of confident GWTC events are Class B⁺** (multi-component coherent geometry). Only 2 events achieve Class A (one-dimensional geometry). Zero false positives — all events show measurable geometric coherence.
 
+### Geometric Method vs LIGO — Correlation Matrix
+
+<img src="img/correlation_matrix.png" width="750" alt="Correlation matrix geometric vs LIGO">
+
+The correlation matrix reveals that **geometric and LIGO parameters are largely orthogonal** (max cross-correlation r=0.52 between η and SNR — only 27% shared variance). The geometric method measures something fundamentally different from template-based parameter estimation.
+
+### Geometric Coherence η — A Template-Free Signal Quality Metric
+
+<img src="img/eta_coherence_floor.png" width="750" alt="η distribution and coherence floor">
+
+**Left:** η distribution across 47 events. The coherence floor at η≈0.37 means all confident GWTC events show measurable geometric structure. **Right:** η vs LIGO SNR (r=+0.40) — geometric coherence correlates with but is not redundant with signal strength. Low-SNR events can still have clean geometry, and vice versa.
+
+### Geometric Sub-Phases — Beyond LIGO's 3-Phase IMR
+
+<img src="img/phases_comparison.png" width="750" alt="Geometric phases vs LIGO phases">
+
+**Left:** Number of geometric phases detected per event. LIGO imposes exactly 3 phases by model construction. Our method **discovers** phases from data — from 1 to 7 depending on source complexity. **Right:** GW170814 comparison. The geometric method reveals 6 sub-phases within LIGO's standard 3-phase IMR framework.
+
+### Template-Free Mass Estimation
+
+<img src="img/mass_estimation.png" width="700" alt="Template-free mass estimation GW170814">
+
+For GW170814, the ISCO frequency detected geometrically (η peak at 80 Hz) yields M≈55.0 M☉ — **within 1.4% of the GWTC value** — using zero waveform templates and ~2 minutes of computation. This demonstrates the potential for rapid, model-independent mass estimation.
+
 ### IMR Phase Portrait — GW170814
+
+<img src="img/imr_phase_portrait.png" width="700" alt="IMR phase portrait for GW170814">
+
+The geometric method detects the inspiral-merger-ringdown transition **without templates**. The ISCO appears as a peak in η at ~78 Hz (matching f_ISCO ≈ 4400/M). The merger appears as a sharp drop (Δη = -0.11). The ringdown shows quasinormal mode oscillations at the expected frequencies for a ~53 M☉ remnant.
 
 <img src="img/imr_phase_portrait.png" width="700" alt="IMR phase portrait for GW170814">
 
